@@ -1,28 +1,34 @@
 #include <stdio.h>
-#include <stdlib.h>
+#define SIZE 4
 
-#define SIZE 5
+void square_array(int a[], int size);
+void print_array(int a[], int size);
 
 int main(void)
 {
-    int i;
-    int a[SIZE] = {1, 2, 3, 4, 5};
-    int b[SIZE] = {1, 2, 3, 4, 5};
-    int flag_same = 1;
+    int list[SIZE] = {1, 2, 3, 4};
 
-    for (i = 0; i < SIZE; i++)
-    {
-        if (a[i] != b[i])
-        {
-            flag_same = 0;
-            printf("Different index: %d\n", i);
-        }
-    }
-
-    if (flag_same == 1)
-        printf("Arrays are equal.\n");
-    else
-        printf("Arrays are different.\n");
+    print_array(list, SIZE);
+    square_array(list, SIZE);
+    print_array(list, SIZE);
 
     return 0;
+}
+
+void square_array(int a[], int size)
+{
+    int i;
+
+    for (i = 0; i < size; i++)
+        a[i] = a[i] * a[i];
+}
+
+void print_array(int a[], int size)
+{
+    int i;
+
+    for (i = 0; i < size; i++)
+        printf("%3d", a[i]);
+
+    printf("\n");
 }
