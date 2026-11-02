@@ -6,18 +6,23 @@
 int main(void)
 {
     int i;
-    int score[SIZE];
-    int sum = 0;
-
-    printf("Enter 5 scores.\n");
+    int a[SIZE] = {1, 2, 3, 4, 5};
+    int b[SIZE] = {1, 2, 3, 4, 5};
+    int flag_same = 1;
 
     for (i = 0; i < SIZE; i++)
     {
-        scanf("%d", &score[i]);
-        sum += score[i];
+        if (a[i] != b[i])
+        {
+            flag_same = 0;
+            printf("Different index: %d\n", i);
+        }
     }
 
-    printf("Average score: %d\n", sum / SIZE);
+    if (flag_same == 1)
+        printf("Arrays are equal.\n");
+    else
+        printf("Arrays are different.\n");
 
     return 0;
 }
